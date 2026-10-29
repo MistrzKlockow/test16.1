@@ -1,0 +1,48 @@
+name: KlockowaKopalnia
+version: 1.0.0
+main: pl.mineprogress.MineProgressPlugin
+api-version: '1.21.11'
+author: KlockowaKopalnia
+softdepend: [Vault, PlaceholderAPI]
+commands:
+  mineadmin:
+    description: Panel administracyjny KlockowaKopalnia
+    usage: /mineadmin help
+    permission: mineprogress.admin
+  profil:
+    description: Profil KlockowaKopalnia z menu narzędzi i systemów
+    usage: /profil
+  mineprogress:
+    description: Nowoczesne menu KlockowaKopalnia
+    usage: /mineprogress [placeholders]
+    aliases: [mp]
+  kopalnia:
+    description: Statystyki kopania
+  kilof:
+    description: Menu rozwoju i prestiżu kilofa
+    usage: /kilof [ulepsz]
+  lopata:
+    description: Menu rozwoju łopaty KlockowaKopalnia
+    usage: /lopata
+  siekiera:
+    description: Menu rozwoju siekiery KlockowaKopalnia
+    usage: /siekiera
+  schowek:
+    description: Wirtualny schowek narzędzi KlockowaKopalnia
+    usage: /schowek
+  prestiz:
+    description: System prestiżu
+  zadania:
+    description: Drzewko zadań KlockowaKopalnia
+    usage: /zadania
+  sklepprestizu:
+    description: Sklep za punkty prestiżu
+    usage: /sklepprestizu
+  ranking:
+    description: Rankingi tygodniowe i miesięczne KlockowaKopalnia
+    usage: /ranking
+permissions:
+  mineprogress.admin:
+    description: Zarządzanie kopalniami KlockowaKopalnia
+    default: op
+

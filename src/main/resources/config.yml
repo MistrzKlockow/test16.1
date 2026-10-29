@@ -1,0 +1,127 @@
+# KlockowaKopalnia 1.0.0 | Paper 1.21.11 | Java 21
+settings:
+  max-player-level: 100
+  player-xp-per-level: 100
+  player-xp-base: 100
+  player-xp-increase-per-level: 10
+  prestige-bonus-per-level: 0.005
+  pickaxe-prestige-money-bonus: 0.0025
+  player-level-money-bonus: 0.001
+  snapshot-limit: 250000
+  # Narzędzia: liczba poziomów przed ulepszeniem materiału.
+  max-pickaxe-level: 20
+  pickaxe-xp-base: 10
+  pickaxe-xp-increase-per-level: 2
+  max-shovel-level: 20
+  shovel-xp-base: 10
+  shovel-xp-increase-per-level: 2
+  max-axe-level: 20
+  axe-xp-base: 10
+  axe-xp-increase-per-level: 2
+pickaxe-progression:
+  efficiency-1: 1
+  efficiency-2: 2
+  efficiency-2-level: 4
+  efficiency-3: 3
+  efficiency-3-level: 8
+  efficiency-4: 4
+  efficiency-4-level: 12
+  efficiency-5: 5
+  efficiency-5-level: 16
+  fortune-1: 1
+  fortune-1-level: 8
+  fortune-2: 2
+  fortune-2-level: 12
+  fortune-3: 3
+  fortune-3-level: 16
+fortune:
+  bonus-chance-per-level: 0.02
+  double-drop-chance: 0.10
+mining-streak:
+  timeout-seconds: 10
+  blocks-per-step: 20
+  money-bonus-per-step: 0.005
+  max-bonus: 0.05
+# Ustawienia domyślne hologramów. Można nadpisywać linie osobno dla każdej kopalni.
+holograms:
+  height: 1.8
+  line-spacing: 0.27
+  default-lines:
+    - '&6Kopalnia: &e{name}'
+    - '&7Bloki: &f{blocks}'
+    - '&bOdnowienie: &f{regen}'
+visuals:
+  boundary-step: 2
+  hologram-refresh-ticks: 20
+tool-progression:
+  # 0 wyłącza dodatkową ostrość na siekierze; dodatnia wartość dodaje ją od poziomu 0.
+  axe-sharpness-per-level: 0
+ui:
+  title: '&8KlockowaKopalnia'
+  accent: '&e'
+  # Kolory szkła i tytuły menu można zmieniać bez ingerencji w kod.
+  filler-material: GRAY_STAINED_GLASS_PANE
+  completed-material: LIME_STAINED_GLASS_PANE
+  incomplete-material: RED_STAINED_GLASS_PANE
+  profile-title: '&8✦ KlockowaKopalnia | Profil'
+  tasks-title: '&2KlockowaKopalnia | Szlaki zadań'
+  ranking-title: '&6KlockowaKopalnia | Rankingi'
+  admin-title: '&4KlockowaKopalnia | Administracja'
+  quest-tool-title: '&2Zadania | {tool}'
+  # Sloty ścieżek w GUI wyboru zadań (0–44). Zmiana slotu wymaga też zgodności z kodem w tej wersji.
+
+messages:
+  prefix: '&8[&6KlockowaKopalnia&8] &r'
+  no-permission: '&cNie masz uprawnień.'
+  no-economy: '&cEkonomia nie jest dostępna. Skontaktuj się z administracją.'
+
+# Losowe wydarzenia dla aktywnych graczy. HASTE II daje praktycznie 2x szybkość kopania.
+random-events:
+  enabled: true
+  check-interval-seconds: 300
+  players-per-check: 1
+  chance-per-check: 0.05
+  haste-duration-seconds: 30
+  title: '&6&lWYDARZENIE!'
+  message: '&e✦ Wydarzenie rozpoczęte! &aSzybkość kopania x2 trwa {seconds} sekund!'
+
+# Punkty otrzymywane po prestiżu gracza.
+prestige-shop:
+  points-per-prestige: 1
+  # Dodawaj własne pozycje. Klucz jest identyfikatorem przedmiotu.
+  items:
+    przyklad_nether_star:
+      material: NETHER_STAR
+      name: '&dPrzykładowa Gwiazda'
+      amount: 1
+      price: 5
+    przyklad_diamonds:
+      material: DIAMOND
+      name: '&bPrzykładowe diamenty'
+      amount: 8
+      price: 3
+
+# Konfiguracja zadań. Każda ścieżka ma własne cele, nazwy etapów i ikony.
+# targets, names i materials są listami równoległymi: element nr 1 opisuje etap nr 1.
+# Możesz zmieniać progi, nazwy oraz materiał ikony bez edycji kodu.
+quests:
+  enabled: true
+  reward-message: '&aUkończono etap {material}! Otrzymujesz {reward}$.'
+  tools:
+    # Każdy materiał ma osobny licznik. Progi i nagrody są wspólne dla każdego materiału w danej ścieżce.
+    # rewards[0] jest wypłacane za pierwszy próg, rewards[1] za drugi itd.
+    pickaxe:
+      targets: [500, 1500, 4000, 10000, 25000]
+      rewards: [100, 250, 600, 1500, 4000]
+      materials: [STONE, COBBLESTONE, COAL_ORE, DEEPSLATE_COAL_ORE, IRON_ORE, DEEPSLATE_IRON_ORE, COPPER_ORE, GOLD_ORE, REDSTONE_ORE, LAPIS_ORE, DIAMOND_ORE, EMERALD_ORE, NETHER_QUARTZ_ORE, ANCIENT_DEBRIS]
+      names: ['Kamień', 'Bruk', 'Ruda węgla', 'Łupek węglowy', 'Ruda żelaza', 'Łupkowa ruda żelaza', 'Ruda miedzi', 'Ruda złota', 'Ruda redstone', 'Ruda lazurytu', 'Ruda diamentu', 'Ruda szmaragdu', 'Ruda kwarcu', 'Pradawne zgliszcza']
+    axe:
+      targets: [250, 750, 2000, 5000, 12000]
+      rewards: [75, 200, 500, 1200, 3000]
+      materials: [OAK_LOG, SPRUCE_LOG, BIRCH_LOG, JUNGLE_LOG, ACACIA_LOG, DARK_OAK_LOG, MANGROVE_LOG, CHERRY_LOG, CRIMSON_STEM, WARPED_STEM, BAMBOO_BLOCK]
+      names: ['Dąb', 'Świerk', 'Brzoza', 'Drzewo tropikalne', 'Akacja', 'Ciemny dąb', 'Namorzyna', 'Wiśnia', 'Karmazynowy pień', 'Spaczony pień', 'Bambus']
+    shovel:
+      targets: [300, 900, 2500, 6000, 15000]
+      rewards: [75, 200, 500, 1200, 3000]
+      materials: [DIRT, GRASS_BLOCK, COARSE_DIRT, ROOTED_DIRT, PODZOL, MYCELIUM, SAND, RED_SAND, GRAVEL, CLAY, SOUL_SAND, SOUL_SOIL, MUD]
+      names: ['Ziemia', 'Blok trawy', 'Gruboziarnista ziemia', 'Zakorzeniona ziemia', 'Bielicowa ziemia', 'Grzybnia', 'Piasek', 'Czerwony piasek', 'Żwir', 'Glina', 'Piasek dusz', 'Gleba dusz', 'Błoto']
